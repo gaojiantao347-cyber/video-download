@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://video-download.local/contracts/schemas/get-download-file-request.schema.json",
+  "title": "GetDownloadFileRequest",
+  "type": "object",
+  "required": ["taskId"],
+  "additionalProperties": false,
+  "properties": {
+    "taskId": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}

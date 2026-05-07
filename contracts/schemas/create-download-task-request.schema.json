@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://video-download.local/contracts/schemas/create-download-task-request.schema.json",
+  "title": "CreateDownloadTaskRequest",
+  "type": "object",
+  "required": ["url", "outputDir", "removeWatermark", "allowFallback"],
+  "additionalProperties": false,
+  "properties": {
+    "url": {
+      "type": "string",
+      "minLength": 1
+    },
+    "outputDir": {
+      "type": "string",
+      "minLength": 1
+    },
+    "removeWatermark": {
+      "type": "boolean"
+    },
+    "allowFallback": {
+      "type": "boolean"
+    }
+  }
+}

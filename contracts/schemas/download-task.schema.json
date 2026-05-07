@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://video-download.local/contracts/schemas/download-task.schema.json",
+  "title": "DownloadTask",
+  "description": "当前 Rust/Python 下载链路的任务状态。",
+  "type": "object",
+  "required": [
+    "taskId",
+    "sourceUrl",
+    "removeWatermark",
+    "watermarkStatus",
+    "status",
+    "progress",
+    "createdAt",
+    "updatedAt"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "taskId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "sourceUrl": {
+      "type": "string",
+      "minLength": 1
+    },
+    "platform": {
+      "enum": ["DOUYIN", "KUAISHOU", null]
+    },
+    "title": {
+      "type": ["string", "null"]
+    },
+    "author": {
+      "type": ["string", "null"]
+    },
+    "coverUrl": {
+      "type": ["string", "null"]
+    },
+    "removeWatermark": {
+      "type": "boolean"
+    },
+    "watermarkStatus": {
+      "type": "string",
+      "enum": ["NOT_REQUESTED", "REMOVED", "UNAVAILABLE", "FALLBACK", "FAILED"]
+    },
+    "status": {
+      "type": "string",
+      "enum": ["PENDING", "DOWNLOADING", "SUCCESS", "FAILED"]
+    },
+    "progress": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "fileName": {
+      "type": ["string", "null"]
+    },
+    "filePath": {
+      "type": ["string", "null"]
+    },
+    "errorCode": {
+      "enum": [
+        "URL_EMPTY",
+        "URL_INVALID",
+        "PLATFORM_NOT_SUPPORTED",
+        "URL_EXPIRED",
+        "PARSE_FAILED",
+        "WATERMARK_REMOVE_UNAVAILABLE",
+        "DOWNLOAD_FAILED",
+        "FILE_TOO_LARGE",
+        "FILE_NOT_FOUND",
+        "TASK_NOT_FOUND",
+        "FILE_NOT_READY",
+        "STORAGE_ERROR",
+        "RPC_INVALID_REQUEST",
+        "RPC_INTERNAL_ERROR",
+        null
+      ]
+    },
+    "errorMessage": {
+      "type": ["string", "null"]
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

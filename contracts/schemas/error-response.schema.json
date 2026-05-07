@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://video-download.local/contracts/schemas/error-response.schema.json",
+  "title": "ErrorResponse",
+  "type": "object",
+  "required": ["jsonrpc", "id", "error"],
+  "additionalProperties": false,
+  "properties": {
+    "jsonrpc": {
+      "const": "2.0"
+    },
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "error": {
+      "type": "object",
+      "required": ["code", "message"],
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "type": "string",
+          "enum": [
+            "URL_EMPTY",
+            "URL_INVALID",
+            "PLATFORM_NOT_SUPPORTED",
+            "URL_EXPIRED",
+            "PARSE_FAILED",
+            "WATERMARK_REMOVE_UNAVAILABLE",
+            "DOWNLOAD_FAILED",
+            "FILE_TOO_LARGE",
+            "FILE_NOT_FOUND",
+            "TASK_NOT_FOUND",
+            "FILE_NOT_READY",
+            "STORAGE_ERROR",
+            "RPC_INVALID_REQUEST",
+            "RPC_METHOD_NOT_FOUND",
+            "RPC_INTERNAL_ERROR"
+          ]
+        },
+        "message": {
+          "type": "string",
+          "minLength": 1
+        },
+        "data": true
+      }
+    }
+  }
+}

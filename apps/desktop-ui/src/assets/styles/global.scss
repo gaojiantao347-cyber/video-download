@@ -1,0 +1,39 @@
+@use './variables.scss';
+
+html,
+body,
+#app {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family:
+    'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑',
+    Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+input,
+textarea,
+[contenteditable='true'] {
+  user-select: text;
+}
+
+body {
+  color: #303133;
+  background: var(--app-color-bg);
+}
+
+button {
+  font: inherit;
+}
+
+.app-page {
+  min-height: 100%;
+  padding: var(--app-page-padding);
+}

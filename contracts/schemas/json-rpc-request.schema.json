@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://video-download.local/contracts/schemas/json-rpc-request.schema.json",
+  "title": "JsonRpcRequest",
+  "type": "object",
+  "required": ["jsonrpc", "id", "method"],
+  "additionalProperties": false,
+  "properties": {
+    "jsonrpc": {
+      "const": "2.0"
+    },
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "method": {
+      "type": "string",
+      "minLength": 1
+    },
+    "params": true
+  }
+}

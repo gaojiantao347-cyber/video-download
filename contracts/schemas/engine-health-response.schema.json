@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://video-download.local/contracts/schemas/engine-health-response.schema.json",
+  "title": "EngineHealthResponse",
+  "type": "object",
+  "required": ["version", "status", "taskStore"],
+  "additionalProperties": false,
+  "properties": {
+    "version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "type": "string",
+      "enum": ["STARTING", "RUNNING", "STOPPING", "FAILED"]
+    },
+    "taskStore": {
+      "type": "string",
+      "enum": ["IN_MEMORY"]
+    }
+  }
+}

@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "video-download-engine"
+version = "0.1.0"
+description = "Local Python download engine backed by yt-dlp"
+requires-python = ">=3.11"
+dependencies = [
+    "yt-dlp",
+    "playwright",
+]
+
+[project.optional-dependencies]
+test = [
+    "pytest>=8",
+]
+build = [
+    "pyinstaller>=6,<7",
+]
+
+[project.scripts]
+video-download-engine = "video_download_engine.cli:main"
+vd-engine = "video_download_engine.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

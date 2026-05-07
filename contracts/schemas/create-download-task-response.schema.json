@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://video-download.local/contracts/schemas/create-download-task-response.schema.json",
+  "title": "CreateDownloadTaskResponse",
+  "type": "object",
+  "required": ["taskId", "status", "removeWatermark"],
+  "additionalProperties": false,
+  "properties": {
+    "taskId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "type": "string",
+      "const": "PENDING"
+    },
+    "removeWatermark": {
+      "type": "boolean"
+    }
+  }
+}
